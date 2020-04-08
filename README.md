@@ -24,6 +24,6 @@
 
 1 /  Renseigner l'username dans la variable user du fichier **config.py**
 
-2 / Modifier le fichier en y ajoutant les **IPs** des équipements cibles. 
+2 / Modifier le fichier liste en y ajoutant les **IPs** des équipements cibles. 
 
 
