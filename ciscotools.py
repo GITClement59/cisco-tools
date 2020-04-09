@@ -32,11 +32,6 @@ def banner():
     
     return cisco_banner
 
-def hostname():
-    sh_hostname = net_connect.send_command("show run | in hostname")
-    hostname = sh_hostname.split()
-    return hostname[1]
-
 def save_dir():
     path_save = "save/{0}".format(hostname())
     rights = 0o755
@@ -69,6 +64,10 @@ def save():
         run_cnf = net_connect.send_command("show running-config")
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
+        def hostname():
+            sh_hostname = net_connect.send_command("show run | in hostname")
+            hostname = sh_hostname.split()
+            return hostname[1]
         path_save = "save/{0}/{1}".format(hostname(),date)
         show_result(path_save)
         
