@@ -90,6 +90,6 @@ def menu():
         print("\n Fin du programme, merci de votre utilisation.")
         sys.exit()
     elif choice == "2":
-        print(lol)
+        print("lol")
         save()
 menu()
