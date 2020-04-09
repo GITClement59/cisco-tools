@@ -10,8 +10,11 @@
 #importation des modules
 import getpass
 import os
-import datetime
+from datetime import datetime
 import sys
+import Netmiko
+import time
+
 #Récupération de l'user / mdp pour se connecter
 print("Entrez vos informations de connexion: ")
 username = input("Username: \n")
