@@ -32,7 +32,7 @@ def menu():
     print (banner())
     choice ='0'
     while choice =='0':
-        print("CISCO-TOOLS \n Choix disponible 1 à 4. \n")
+        print("\n Choix disponible 1 à 4. \n")
         print("Choisir '1' pour la configuration avancée. ")
         print("Choisir '2' pour la sauvegarde intégrale. ")
         print("Choisir '3' pour l'effacement intégral. ")
