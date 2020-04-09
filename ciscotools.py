@@ -17,14 +17,14 @@ username = input("Username: \n")
 password = getpass.getpass("Password: \n")
 
 def banner():
-    cisco_banner = """
+    cisco_banner = """\
            _                     _              _     
       (_)                   | |            | |    
    ___ _ ___  ___ ___ ______| |_ ___   ___ | |___ 
   / __| / __|/ __/ _ \______| __/ _ \ / _ \| / __|
  | (__| \__ \ (_| (_) |     | || (_) | (_) | \__ \
   \___|_|___/\___\___/       \__\___/ \___/|_|___/
-        """
+        \"""
     return cisco_banner
 
 def menu():
