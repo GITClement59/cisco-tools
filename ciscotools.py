@@ -57,7 +57,7 @@ def save():
     with open(path_save, "a") as file:
         file.write(CONFIGURATION  + "\n")
 
-Affichage du menu 
+#Affichage du menu 
 def menu(): 
     print("\n Choix disponible 1 à 4. \n")
     print("Choisir '1' pour la configuration avancée. ")
