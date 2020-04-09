@@ -9,6 +9,7 @@
 
 #importation des modules
 import getpass
+import sys
 
 #Récupération de l'user / mdp pour se connecter
 print("Entrez vos informations de connexion: ")
