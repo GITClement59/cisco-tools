@@ -92,4 +92,4 @@ def menu():
     elif choice == "2":
         print(lol)
         save()
-  menu()
+ menu()
