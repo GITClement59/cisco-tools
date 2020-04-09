@@ -12,7 +12,7 @@ import getpass
 import os
 from datetime import datetime
 import sys
-import Netmiko
+from netmiko import Netmiko
 import time
 
 #Récupération de l'user / mdp pour se connecter
