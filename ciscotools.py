@@ -12,7 +12,7 @@ import getpass
 import os
 from datetime import datetime
 import sys
-from netmiko import ConnectHandler
+from netmiko import Netmiko
 import time
 
 #Récupération de l'user / mdp pour se connecter
@@ -44,45 +44,43 @@ def save_dir():
 
 def save():
     start = datetime.now()
-       
-    #with open('router.list') as f:
-    #    ip_r = f.read().splitlines()
-    #with open('switch.list') as f:
-    #    ip_s = f.read().splitlines()
+    with open('router.list') as f:
+        ip_r = f.read().splitlines()
+    with open('switch.list') as f:
+        ip_s = f.read().splitlines()
     
-    #ip_add = ip_r + ip_s
-    #print(ip_add)
+    ip_add = ip_r + ip_s
     
-    #for ip in ip_r:        
-    ip = '192.168.1.1'  
-    equipment = {
-    'device_type': 'cisco_ios',
-    'ip': ip,
-    'username': username,
-    'password': password,
-     }
+    for ip in ip_r:        
+    
+        equipment = {
+        'device_type': 'cisco_ios',
+        'ip': ip,
+        'username': username,
+        'password': password,
+         }
 
-    net_connect = ConnectHandler(**equipment)
+        net_connect = Netmiko(**equipment)
+        #récupération de la running-config
+        run_cnf = net_connect.send_command("show running-config")
+        print(run_cnf)
+        now = datetime.now()
+        date = now.strftime("%d_%m_%Y")
+        
+        #path_save = "save/"+ hostname1
+            #rights = 0o755
+            #if not os.path.isdir(path_save):
+            #    os.mkdir(path_save, rights)
+            #path_save = "save/{0}/{1}".format(hostname(),date)
+            #print(path_save)
 
-    #récupération de la running-config
-    run_cnf = net_connect.send_command("show running-config")
-    print(run_cnf)
-    now = datetime.now()
-    date = now.strftime("%d_%m_%Y")
-    #path_save = "save/"+ hostname1
-        #rights = 0o755
-        #if not os.path.isdir(path_save):
-        #    os.mkdir(path_save, rights)
-        #path_save = "save/{0}/{1}".format(hostname(),date)
-        #print(path_save)
-
-        #Ajoute la configuration au fichier texte créer ci dessus
-        #with open(path_save, "a") as file:
-         #   file.write(run_cnf  + "\n")
-        #net_connect.disconnect()
-    end = datetime.now()
-    duration = end - start
-    print("Execution Duration : "+ str(duration))
+            #Ajoute la configuration au fichier texte créer ci dessus
+            #with open(path_save, "a") as file:
+             #   file.write(run_cnf  + "\n")
+            #net_connect.disconnect()
+        end = datetime.now()
+        duration = end - start
+        print("Execution Duration : "+ str(duration))
           
 #Affichage du menu 
 def menu(): 
