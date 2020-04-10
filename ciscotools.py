@@ -15,6 +15,8 @@ import sys
 from netmiko import Netmiko
 import time
 
+def start():
+    start = datetime.now()
 #Récupération de l'user / mdp pour se connecter
 print("Entrez vos informations de connexion: ")
 #username = input("Username: \n")
@@ -43,6 +45,7 @@ def save_dir():
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 
 def save():
+    
     start = datetime.now()
     with open('router.list') as f:
         ip_r = f.read().splitlines()
@@ -62,22 +65,22 @@ def save():
 
         net_connect = Netmiko(**equipment)
         #récupération de la running-config
-        run_cnf = net_connect.send_command("show run")
-        print(run_cnf)
+        run_cnf = net_connect.send_command("sh run")
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
+        def hostname():
+            hst = net_connect.send_command("show run | in hostname")
+            hostname = sh_check.split()
+            return hostname[1]
+        path_save = "save/{0}/{1}.txt".format(hostname(),date)
+        rights = 0o755
+        if not os.path.isdir(path_save):
+            os.mkdir(path_save, rights)
         
-        #path_save = "save/"+ hostname1
-            #rights = 0o755
-            #if not os.path.isdir(path_save):
-            #    os.mkdir(path_save, rights)
-            #path_save = "save/{0}/{1}".format(hostname(),date)
-            #print(path_save)
-
-            #Ajoute la configuration au fichier texte créer ci dessus
-            #with open(path_save, "a") as file:
-             #   file.write(run_cnf  + "\n")
-            #net_connect.disconnect()
+        #Ajoute la configuration au fichier texte créer ci dessus
+        with open(path_save, "a") as file:
+            file.write(run_cnf  + "\n")
+            net_connect.disconnect()
         end = datetime.now()
         duration = end - start
         print("Execution Duration : "+ str(duration))
