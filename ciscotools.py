@@ -51,7 +51,7 @@ def save():
         ip_s = f.read().splitlines()
     
     ip_add = ip_r + ip_s
-    
+    print(ip_add)
     for ip in ip_add:        
   
         equipment = {
