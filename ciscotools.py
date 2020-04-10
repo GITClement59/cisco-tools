@@ -41,22 +41,43 @@ def save_dir():
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 
 def save():
-    save_dir()
-    #récupération de la running-config
-    run_cnf = net_connect.send_command("show running-config")
-    now = datetime.now()
-    date = now.strftime("%d_%m_%Y")
-    def hostname():
-        sh_hostname = net_connect.send_command("show run | in hostname")
-        hostname = sh_hostname.split()
-        return hostname[1]
-    path_save = "save/{0}/{1}".format(hostname(),date)
-    show_result(path_save)
+    start = datetime.now()
+       
+    with open('router.list') as f:
+        ip_r = f.read().splitlines()
+    with open('switch.list') as f:
+        ip_s = f.read().splitlines()
+    
+    ip_add = ip_r + ip_s
+    
+    for ip in ip_a:        
+  
+        equipment = {
+        'device_type': 'cisco_ios',
+        'ip': ip,
+        'username': username,
+        'password': password,
+         }
+        net_connect = ConnectHandler(**device)
+    
+        #récupération de la running-config
+        run_cnf = net_connect.send_command("show running-config")
+        date = now.strftime("%d_%m_%Y")
+        def hostname():
+            sh_hostname = net_connect.send_command("show run | in hostname")
+            hostname = sh_hostname.split()
+            return hostname[1]
+        path_save = "save/{0}/{1}".format(hostname(),date)
+        show_result(path_save)
 
-    #Ajoute la configuration au fichier texte créer ci dessus
-    with open(path_save, "a") as file:
-        file.write(CONFIGURATION  + "\n")
-
+        #Ajoute la configuration au fichier texte créer ci dessus
+        with open(path_save, "a") as file:
+            file.write(CONFIGURATION  + "\n")
+        net_connect.disconnect()
+    end = datetime.now()
+    duration = end - start
+    print("Execution Duration : "str(duration)"
+          
 #Affichage du menu 
 def menu(): 
     print("\n Choix disponible 1 à 4. \n")
