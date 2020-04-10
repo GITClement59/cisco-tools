@@ -66,8 +66,7 @@ def save():
         run_cnf = net_connect.send_command("show running-config")
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
-        sh_hostname = net_connect.send_command("show run | in hostname")
-        print(sh_hostname)
+        sh_hostname = net_connect.send_command("show run")
         hostname = sh_hostname.split()
         hostname1 = hostname[1]
         path_save = "save/"+ hostname1
