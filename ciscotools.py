@@ -47,12 +47,12 @@ def save():
        
     with open('router.list') as f:
         ip_r = f.read().splitlines()
-    with open('switch.list') as f:
-        ip_s = f.read().splitlines()
+    #with open('switch.list') as f:
+    #    ip_s = f.read().splitlines()
     
-    ip_add = ip_r + ip_s
-    print(ip_add)
-    for ip in ip_add:        
+    #ip_add = ip_r + ip_s
+    #print(ip_add)
+    for ip in ip_r:        
   
         equipment = {
         'device_type': 'cisco_ios',
