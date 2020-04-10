@@ -71,7 +71,7 @@ def save():
             hostname = sh_hostname.split()
             return hostname[1]
         path_save = "save/{0}/{1}".format(hostname(),date)
-        show_result(path_save)
+        print(path_save)
 
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
