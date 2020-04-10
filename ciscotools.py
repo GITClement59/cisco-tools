@@ -68,8 +68,8 @@ def save():
             return hostname[1]
         path_save = "save/{0}/{1}".format(hostname(),date)
         try:
-            os.makedirs("save/{0]/".format(hostname())
-        if exc.errno == errno.EEXIST and os.path.isdir(save/{0]/".format(hostname()):
+            os.makedirs("save/{0}/".format(hostname())
+        if exc.errno == errno.EEXIST and os.path.isdir(save/{0}/".format(hostname()):
             pass
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
