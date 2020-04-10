@@ -43,7 +43,7 @@ def save_dir():
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 
 def save():
-        start = datetime.now()
+    start = datetime.now()
        
     #with open('router.list') as f:
     #    ip_r = f.read().splitlines()
@@ -54,22 +54,22 @@ def save():
     #print(ip_add)
     
     #for ip in ip_r:        
-        ip = '192.168.1.1'  
-        equipment = {
-        'device_type': 'cisco_ios',
-        'ip': ip,
-        'username': username,
-        'password': password,
-         }
-    
-        net_connect = ConnectHandler(**equipment)
-    
-        #récupération de la running-config
-        run_cnf = net_connect.send_command("show running-config")
-        print(run_cnf)
-        now = datetime.now()
-        date = now.strftime("%d_%m_%Y")
-        #path_save = "save/"+ hostname1
+    ip = '192.168.1.1'  
+    equipment = {
+    'device_type': 'cisco_ios',
+    'ip': ip,
+    'username': username,
+    'password': password,
+     }
+
+    net_connect = ConnectHandler(**equipment)
+
+    #récupération de la running-config
+    run_cnf = net_connect.send_command("show running-config")
+    print(run_cnf)
+    now = datetime.now()
+    date = now.strftime("%d_%m_%Y")
+    #path_save = "save/"+ hostname1
         #rights = 0o755
         #if not os.path.isdir(path_save):
         #    os.mkdir(path_save, rights)
