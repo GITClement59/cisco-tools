@@ -60,6 +60,7 @@ def save():
         'username': username,
         'password': password,
          }
+    
         net_connect = ConnectHandler(**equipment)
     
         #récupération de la running-config
