@@ -62,6 +62,7 @@ def save():
     
         #récupération de la running-config
         run_cnf = net_connect.send_command("show running-config")
+        now = datetime.now()
         date = now.strftime("%d_%m_%Y")
         def hostname():
             sh_hostname = net_connect.send_command("show run | in hostname")
