@@ -64,11 +64,9 @@ def save():
     
         #récupération de la running-config
         run_cnf = net_connect.send_command("show running-config")
+        print(run_cnf)
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
-        sh_hostname = net_connect.send_command("show run")
-        hostname = sh_hostname.split()
-        hostname1 = hostname[1]
         path_save = "save/"+ hostname1
         rights = 0o755
         if not os.path.isdir(path_save):
