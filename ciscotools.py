@@ -43,7 +43,7 @@ def save_dir():
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 
 def save():
-    start = datetime.now()
+        start = datetime.now()
        
     #with open('router.list') as f:
     #    ip_r = f.read().splitlines()
