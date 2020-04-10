@@ -67,17 +67,17 @@ def save():
         print(run_cnf)
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
-        path_save = "save/"+ hostname1
-        rights = 0o755
-        if not os.path.isdir(path_save):
-            os.mkdir(path_save, rights)
-        path_save = "save/{0}/{1}".format(hostname(),date)
-        print(path_save)
+        #path_save = "save/"+ hostname1
+        #rights = 0o755
+        #if not os.path.isdir(path_save):
+        #    os.mkdir(path_save, rights)
+        #path_save = "save/{0}/{1}".format(hostname(),date)
+        #print(path_save)
 
         #Ajoute la configuration au fichier texte créer ci dessus
-        with open(path_save, "a") as file:
-            file.write(run_cnf  + "\n")
-        net_connect.disconnect()
+        #with open(path_save, "a") as file:
+         #   file.write(run_cnf  + "\n")
+        #net_connect.disconnect()
     end = datetime.now()
     duration = end - start
     print("Execution Duration : "+ str(duration))
