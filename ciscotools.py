@@ -50,7 +50,7 @@ def save():
     
     ip_add = ip_r + ip_s
     
-    for ip in ip_a:        
+    for ip in ip_add:        
   
         equipment = {
         'device_type': 'cisco_ios',
