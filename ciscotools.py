@@ -14,6 +14,7 @@ from datetime import datetime
 import sys
 from netmiko import Netmiko
 import time
+import errno
 
 def start():
     start = datetime.now()
