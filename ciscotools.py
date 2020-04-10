@@ -70,7 +70,7 @@ def save():
         date = now.strftime("%d_%m_%Y")
         def hostname():
             hst = net_connect.send_command("show run | in hostname")
-            hostname = sh_check.split()
+            hostname = hst.split()
             return hostname[1]
         path_save = "save/{0}/{1}.txt".format(hostname(),date)
         rights = 0o755
