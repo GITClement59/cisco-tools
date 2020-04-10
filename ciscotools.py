@@ -70,6 +70,10 @@ def save():
             sh_hostname = net_connect.send_command("show run | in hostname")
             hostname = sh_hostname.split()
             return hostname[1]
+        path_save = "save/{0}".format(hostname())
+        rights = 0o755
+        if not os.path.isdir(path_save):
+            os.mkdir(path_save, rights)
         path_save = "save/{0}/{1}".format(hostname(),date)
         print(path_save)
 
@@ -98,5 +102,6 @@ if choice == "4":
     print("\n Fin du programme, merci de votre utilisation.")
     sys.exit()
 elif choice == "2":
+    savedir()
     save()
 menu()
