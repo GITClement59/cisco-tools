@@ -71,8 +71,7 @@ def save():
         try:
             os.makedirs("save/{0}/".format(hostname())
         except:
-            if exc.errno == errno.EEXIST and os.path.isdir(save/{0}/".format(hostname()):
-                pass
+            pass
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
             file.write(run_cnf  + "\n")
