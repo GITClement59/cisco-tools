@@ -72,6 +72,7 @@ def save():
             os.makedirs(path_save)
         except:
             pass
+        path_save = path_save.txt
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
             file.write(run_cnf  + "\n")
