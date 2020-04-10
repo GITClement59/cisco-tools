@@ -35,12 +35,6 @@ def banner():
   """
     
     return cisco_banner
-
-def save_dir():
-    path_save = "save/{0}".format(hostname())
-    rights = 0o755
-    if not os.path.isdir(path_save):
-        os.mkdir(path_save, rights)
         
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 
@@ -73,7 +67,10 @@ def save():
             hostname = hst.split()
             return hostname[1]
         path_save = "save/{0}/{1}".format(hostname(),date)
-        save_dir()
+        try:
+            os.makedirs("save/{0]/".format(hostname())
+        if exc.errno == errno.EEXIST and os.path.isdir(save/{0]/".format(hostname()):
+            pass
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
             file.write(run_cnf  + "\n")
