@@ -72,11 +72,8 @@ def save():
             hst = net_connect.send_command("show run | in hostname")
             hostname = hst.split()
             return hostname[1]
-        path_save = "save/{0}/{1}.txt".format(hostname(),date)
-        rights = 0o755
-        if not os.path.isdir(path_save):
-            os.mkdir(path_save, rights)
-        
+        path_save = "save/{0}/{1}".format(hostname(),date)
+        save_dir()
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
             file.write(run_cnf  + "\n")
