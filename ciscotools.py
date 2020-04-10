@@ -17,9 +17,11 @@ import time
 
 #Récupération de l'user / mdp pour se connecter
 print("Entrez vos informations de connexion: ")
-username = input("Username: \n")
-password = getpass.getpass("Password: \n")
+#username = input("Username: \n")
+#password = getpass.getpass("Password: \n")
 
+username = "admin"
+password = "azerty"
 def banner():
     cisco_banner = """\n
        _                     _              _     
