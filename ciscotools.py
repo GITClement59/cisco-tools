@@ -62,7 +62,7 @@ def save():
 
         net_connect = Netmiko(**equipment)
         #récupération de la running-config
-        run_cnf = net_connect.send_command("show running-config")
+        run_cnf = net_connect.send_command("show run")
         print(run_cnf)
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
