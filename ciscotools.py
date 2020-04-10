@@ -58,7 +58,7 @@ def save():
         'username': username,
         'password': password,
          }
-        net_connect = ConnectHandler(**device)
+        net_connect = ConnectHandler(**equipment)
     
         #récupération de la running-config
         run_cnf = net_connect.send_command("show running-config")
@@ -72,7 +72,7 @@ def save():
 
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
-            file.write(CONFIGURATION  + "\n")
+            file.write(run_cnf  + "\n")
         net_connect.disconnect()
     end = datetime.now()
     duration = end - start
