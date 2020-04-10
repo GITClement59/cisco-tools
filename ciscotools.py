@@ -69,8 +69,8 @@ def save():
         def hostname():
             sh_hostname = net_connect.send_command("show run | in hostname")
             hostname = sh_hostname.split()
-            return hostname[1]
-        path_save = "save/{0}".format(hostname())
+            hostname1 = hostname[1]
+        path_save = ""save/"+hostname1"
         rights = 0o755
         if not os.path.isdir(path_save):
             os.mkdir(path_save, rights)
