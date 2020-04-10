@@ -102,6 +102,5 @@ if choice == "4":
     print("\n Fin du programme, merci de votre utilisation.")
     sys.exit()
 elif choice == "2":
-    savedir()
     save()
 menu()
