@@ -109,6 +109,7 @@ def save():
         with open(file_save, "a") as file:
             file.write(run_cnf  + "\n")
             net_connect.disconnect()
+        print(file_save)    
         end = datetime.now()
         duration = end - start
         print("Execution Duration : "+ str(duration)+"\n")
