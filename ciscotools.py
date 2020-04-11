@@ -63,6 +63,8 @@ def envoi():
         output = net_connect.send_config_set(lines)
         time.sleep(1)
         net_connect.save_config()
+        time.sleep(0,5)
+        net_connect.disconnect()
         print(output)
         
     end = datetime.now()
