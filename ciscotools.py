@@ -49,10 +49,11 @@ def envoi():
     #    lines = f.read().splitlines()
     with open('send.list') as f:
         ip = f.read().splitlines()
-        print("Envoi de la configuration sur l'adresse : "+ ip)
-              
-    for ip in ip:        
         
+              
+    for ip in ip:   
+      
+        print("Envoi de la configuration sur l'adresse : "+ ip)
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
