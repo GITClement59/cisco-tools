@@ -59,6 +59,7 @@ def envoi():
         'ip': ip,
         'username': username,
         'password': password,
+        'blocking_timeout': 16
          }
 
         net_connect = Netmiko(**equipment)
