@@ -74,7 +74,7 @@ def save():
             pass
         file_save = "save/{0}/{1}.txt".format(hostname(),date)
         #Ajoute la configuration au fichier texte créer ci dessus
-        with open(path_save, "a") as file:
+        with open(file_save, "a") as file:
             file.write(run_cnf  + "\n")
             net_connect.disconnect()
         end = datetime.now()
