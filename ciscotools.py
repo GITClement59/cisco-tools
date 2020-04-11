@@ -76,6 +76,7 @@ def envoi():
     end = datetime.now()
     duration = end - start
     print("Execution Duration : "+ str(duration)+"\n")
+    main()
     
 def save():
     
@@ -88,7 +89,7 @@ def save():
     ip_add = ip_r + ip_s
     
     for ip in ip_r:        
-    
+        print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
@@ -114,7 +115,7 @@ def save():
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(file_save, "a") as file:
             file.write(run_cnf  + "\n")
-            net_connect.disconnect()
+        net_connect.disconnect()
         print(file_save)    
         end = datetime.now()
         duration = end - start
