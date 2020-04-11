@@ -49,7 +49,8 @@ def envoi():
         lines = f.read().splitlines()
     with open('send.list') as f:
         ip = f.read().splitlines()
-    
+        print("Envoi de la configuration sur l'adresse : "+ ip")
+              
     for ip in ip:        
         
         equipment = {
@@ -119,7 +120,7 @@ def menu():
     print("\n Choix disponible 1 à 4. \n")
     print("Choisir '1' pour l'envoi de configuration sur un routeur. ")
     print("Choisir '2' pour la sauvegarde intégrale. ")
-    print("Choisir '3' pour l'effacement intégral. ")
+    print("Choisir '3' pour redémarrer l'ensemble des équipements réseaux. ")
     print("Choisir '4' pour quitter le programme. \n")
 
 print (banner())
