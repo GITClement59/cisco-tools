@@ -62,7 +62,7 @@ def envoi():
          }
 
         net_connect = Netmiko(**equipment)
-        output = net_connect.send_config_from_file("cnf")
+        output = net_connect.send_config_from_file("conf")
         net_connect.save_config()
         time.sleep(0,5)
         net_connect.disconnect()
