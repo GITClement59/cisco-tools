@@ -72,7 +72,7 @@ def save():
             os.makedirs(path_save)
         except:
             pass
-        file_save = path_save+".txt"
+        file_save = "save/{0}/{1}.txt".format(hostname(),date)
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
             file.write(run_cnf  + "\n")
