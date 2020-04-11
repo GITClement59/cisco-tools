@@ -67,12 +67,12 @@ def save():
             hst = net_connect.send_command("show run | in hostname")
             hostname = hst.split()
             return hostname[1]
-        path_save = "save/{0}/{1}".format(hostname(),date)
+        path_save = "save/{0}/".format(hostname())
         try:
             os.makedirs(path_save)
         except:
             pass
-        path_save = path_save.txt
+        file_save = path_save+".txt"
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(path_save, "a") as file:
             file.write(run_cnf  + "\n")
