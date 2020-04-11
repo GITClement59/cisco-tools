@@ -63,6 +63,9 @@ def envoi():
          }
 
         net_connect = Netmiko(**equipment)
+         
+        with open('conf') as f:
+            lines = f.read().splitlines()
         output = net_connect.send_config_set(lines)
         time.sleep(1)
         net_connect.save_config()
