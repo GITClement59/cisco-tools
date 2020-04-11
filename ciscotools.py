@@ -140,8 +140,8 @@ if choice == "4":
     sys.exit()
 elif choice == "1":
     envoi()
-    main()
+    menu()
 elif choice == "2":
     save()
-    main()
+    menu()
 menu()
