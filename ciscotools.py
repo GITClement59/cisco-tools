@@ -79,7 +79,7 @@ def save():
             net_connect.disconnect()
         end = datetime.now()
         duration = end - start
-        print("Execution Duration : "+ str(duration))
+        print("Execution Duration : "+ str(duration)+"\n")
           
 #Affichage du menu 
 def menu(): 
