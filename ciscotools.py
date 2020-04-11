@@ -59,11 +59,11 @@ def envoi():
         'password': password,
          }
 
-         net_connect = Netmiko(**equipment)
-         output = net_connect.send_config_set(lines)
-         time.sleep(1)
-         net_connect.save_config()
-         print(output)
+        net_connect = Netmiko(**equipment)
+        output = net_connect.send_config_set(lines)
+        time.sleep(1)
+        net_connect.save_config()
+        print(output)
         
     end = datetime.now()
     duration = end - start
