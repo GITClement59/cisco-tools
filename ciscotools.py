@@ -14,10 +14,9 @@ from datetime import datetime
 import sys
 from netmiko import Netmiko
 import time
-import errno
 
-def start():
-    start = datetime.now()
+
+   
 #Récupération de l'user / mdp pour se connecter
 print("Entrez vos informations de connexion: ")
 #username = input("Username: \n")
@@ -25,6 +24,10 @@ print("Entrez vos informations de connexion: ")
 
 username = "admin"
 password = "azerty"
+
+def start():
+    start = datetime.now()
+    
 def banner():
     cisco_banner = """\n
        _                     _              _     
@@ -38,7 +41,34 @@ def banner():
     return cisco_banner
         
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
+def envoi(): 
+    
+    start = datetime.now()
+    
+    with open('conf') as f:
+        lines = f.read().splitlines()
+    with open('send.list') as f:
+        ip = f.read().splitlines()
+    
+    for ip in ip:        
+        
+        equipment = {
+        'device_type': 'cisco_ios',
+        'ip': ip,
+        'username': username,
+        'password': password,
+         }
 
+         net_connect = Netmiko(**equipment)
+         output = net_connect.send_config_set(lines)
+         time.sleep(1)
+         net_connect.save_config()
+         print(output)
+        
+    end = datetime.now()
+    duration = end - start
+    print("Execution Duration : "+ str(duration)+"\n")
+    
 def save():
     
     start = datetime.now()
@@ -84,7 +114,7 @@ def save():
 #Affichage du menu 
 def menu(): 
     print("\n Choix disponible 1 à 4. \n")
-    print("Choisir '1' pour la configuration avancée. ")
+    print("Choisir '1' pour l'envoi de configuration sur un routeur. ")
     print("Choisir '2' pour la sauvegarde intégrale. ")
     print("Choisir '3' pour l'effacement intégral. ")
     print("Choisir '4' pour quitter le programme. \n")
@@ -97,6 +127,8 @@ while choice =='0':
 if choice == "4":
     print("\n Fin du programme, merci de votre utilisation.")
     sys.exit()
+elif choice == "1":
+    envoi()
 elif choice == "2":
     save()
 menu()
