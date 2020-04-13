@@ -59,12 +59,12 @@ def envoi():
         'blocking_timeout': 16
          }
 
-        net_connect = Netmiko(**equipment)
-        net_connect.enable() 
+        net_connect = Netmiko(**equipment) 
         with open('conf') as f:
             lines = f.read().splitlines()
         output = net_connect.send_config_set(lines)
         time.sleep(5)
+        net_connect.enable()
         net_connect.save_config()
         net_connect.disconnect()
         print(output)
