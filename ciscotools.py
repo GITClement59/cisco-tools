@@ -146,14 +146,15 @@ def menu():
     print("\n Choix disponible 1 à 4. \n")
     print("Choisir '1' pour l'envoi de configuration sur un équipement. ")
     print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
-    print("Choisir '3' pour quitter le programme. \n")
+    print("Choisir '3' pour vérifier les versions installées")
+    print("Choisir '4' pour quitter le programme. \n")
 
 print (banner())
 start()
 menu()
 while choice =='0':
     choice = input ("Sélection: ")
-if choice == "3":
+if choice == "4":
     print("\n Fin du programme, merci de votre utilisation.")
     sys.exit()
 elif choice == "1":
@@ -162,5 +163,6 @@ elif choice == "1":
 elif choice == "2":
     save()
     menu()
- 
+elif choice == "3":
+    firmware()
 end()
