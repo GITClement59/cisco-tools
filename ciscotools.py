@@ -75,7 +75,6 @@ def envoi():
         net_connect.disconnect()
         print(output)     
     end()
-    main()
     
    def save():
        start()
