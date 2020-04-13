@@ -140,7 +140,8 @@ def firmware():
       net_connect = Netmiko(**equipment)
       print(net_connect.send_command("show version | in IOS"))
       net_connect.disconnect()
-   
+      end()
+      
 #Affichage du menu 
 def menu(): 
       choice ='0'
@@ -162,5 +163,5 @@ def menu():
          menu()
       elif choice == "3":
          firmware()
-         end()
+         menu()
 menu()
