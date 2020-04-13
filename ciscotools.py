@@ -35,12 +35,9 @@ def banner():
     
     return cisco_banner
    
-#Fonction qui récupére l'heure de début
-def start():
-    start = time.time()
     
 #Fonction qui permet de calculer la durée de la tâche     
-def duration(start):
+def duration():
     print("[Execution time : {0} seconds]".format(round(time.time() - start)))
       
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
@@ -119,7 +116,7 @@ def save():
         duration()
 #Récupére la version des équipements listés      
 def firmware():
-   start()
+   start = time.time()
    with open('router.list') as f:
       ip_r = f.read().splitlines()
    with open('switch.list') as f:
@@ -138,7 +135,7 @@ def firmware():
       net_connect = Netmiko(**equipment)
       print(net_connect.send_command("show version | in IOS"))
       net_connect.disconnect()
-   duration(start)
+   duration()
       
 #Affichage du menu 
 def menu(): 
