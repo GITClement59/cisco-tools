@@ -125,11 +125,9 @@ def firmware():
         ip_r = f.read().splitlines()
     with open('switch.list') as f:
         ip_s = f.read().splitlines()
-
     ip_add = ip_r + ip_s
 
     for ip in ip_add:        
-
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
