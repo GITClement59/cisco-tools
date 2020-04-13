@@ -163,3 +163,4 @@ def menu():
       elif choice == "3":
          firmware()
          end()
+menu()
