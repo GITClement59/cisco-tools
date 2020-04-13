@@ -42,7 +42,7 @@ def duration(start):
       
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 def envoi(): 
-    start()    
+    start = time.time()  
     with open('conf') as f:
         lines = f.read().splitlines()
     with open('send.list') as f:
@@ -69,10 +69,10 @@ def envoi():
         time.sleep(0,5)
         net_connect.disconnect()
         print(output)     
-    duration()
+    duration(start)
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
-    start()
+    start = time.time()
     with open('router.list') as f:
         ip_r = f.read().splitlines()
     with open('switch.list') as f:
@@ -113,7 +113,7 @@ def save():
             file.write(run_cnf  + "\n")
         print("Configuration Sauvegardée dans le fichier:" + file_save)
         net_connect.disconnect()
-        duration()
+     duration(start)
 #Récupére la version des équipements listés      
 def firmware():
    start = time.time()
