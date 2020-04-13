@@ -88,8 +88,9 @@ def save():
     
     ip_add = ip_r + ip_s
     
-    for ip in ip_r:        
+    for ip in ip_add:        
         print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
+      
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
