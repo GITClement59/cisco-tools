@@ -42,7 +42,7 @@ def start():
 #Fonction qui permet de calculer la durée de la tâche     
 def duration():
     duration = (time.time() - start)
-    print("Execution Duration : "+ str(duration)+"\n")
+    print("[Execution time : {0} seconds]".format(round(time.time() - start)))
       
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 def envoi(): 
