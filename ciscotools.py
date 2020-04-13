@@ -75,7 +75,7 @@ def envoi():
         net_connect.disconnect()
         print(output)     
     end()
-    
+#Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
     start()
     with open('router.list') as f:
@@ -84,7 +84,7 @@ def save():
         ip_s = f.read().splitlines()
 
     ip_add = ip_r + ip_s
-
+#On parcourt la liste d'IP
     for ip in ip_add:        
         print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
 
@@ -94,18 +94,20 @@ def save():
         'username': username,
         'password': password,
          }
-
+        #On initialise la connexion Netmiko sur l'équipement cible
         net_connect = Netmiko(**equipment)
         #récupération de la running-config
         run_cnf = net_connect.send_command("show running-config")
         print("Configuration Sauvegardée : "+ "\n" + run_cnf)
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
+         #Récupération du hostname
         def hostname():
             hst = net_connect.send_command("show running-config | in hostname")
             hostname = hst.split()
             return hostname[1]
         path_save = "save/{0}/".format(hostname())
+        #Création du dossier de backup si nécessaire
         try:
             os.makedirs(path_save)
         except:
@@ -141,28 +143,23 @@ def firmware():
    
 #Affichage du menu 
 def menu(): 
-    choice ='0'
-    print("\n Choix disponible 1 à 4. \n")
-    print("Choisir '1' pour l'envoi de configuration sur un équipement. ")
-    print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
-    print("Choisir '3' pour vérifier les versions installées")
-    print("Choisir '4' pour quitter le programme. \n")
-    return choice
-
-print (banner())
-start()
-menu()
-while choice =='0':
-    choice = input ("Sélection: ")
-if choice == "4":
-    print("\n Fin du programme, merci de votre utilisation.")
-    sys.exit()
-elif choice == "1":
-    envoi()
-    menu()
-elif choice == "2":
-    save()
-    menu()
-elif choice == "3":
-    firmware()
-end()
+      choice ='0'
+      print("\n Choix disponible 1 à 4. \n")
+      print("Choisir '1' pour l'envoi de configuration sur un équipement. ")
+      print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
+      print("Choisir '3' pour vérifier les versions installées")
+      print("Choisir '4' pour quitter le programme. \n")
+      while choice =='0':
+         choice = input ("Sélection: ")
+      if choice == "4":
+         print("\n Fin du programme, merci de votre utilisation.")
+         sys.exit()
+      elif choice == "1":
+         envoi()
+         menu()
+      elif choice == "2":
+         save()
+         menu()
+      elif choice == "3":
+         firmware()
+         end()
