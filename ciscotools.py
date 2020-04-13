@@ -101,12 +101,12 @@ def save():
 
         net_connect = Netmiko(**equipment)
         #récupération de la running-config
-        run_cnf = net_connect.send_command("show run")
+        run_cnf = net_connect.send_command("show running-config")
         print("Configuration Sauvegardée : "+ "\n" + run_cnf)
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
         def hostname():
-            hst = net_connect.send_command("show run | in hostname")
+            hst = net_connect.send_command("show running-config | in hostname")
             hostname = hst.split()
             return hostname[1]
         path_save = "save/{0}/".format(hostname())
