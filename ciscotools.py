@@ -14,8 +14,6 @@ from datetime import datetime
 import sys
 from netmiko import Netmiko
 import time
-
-
    
 #Récupération de l'user / mdp pour se connecter
 print("Entrez vos informations de connexion: ")
@@ -25,9 +23,6 @@ print("Entrez vos informations de connexion: ")
 username = "admin"
 password = "azerty"
 
-def start():
-    start = datetime.now()
-    
 def banner():
     cisco_banner = """\n
        _                     _              _     
@@ -39,20 +34,26 @@ def banner():
   """
     
     return cisco_banner
-        
+   
+#Fonction qui récupére l'heure de début
+def start():
+    start = datetime.now()
+      
+#Fonction qui permet de calculer la durée de la tâche     
+def end():
+    end = datetime.now()
+    duration = end - start
+    print("Execution Duration : "+ str(duration)+"\n")
+      
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
 def envoi(): 
-    
-    start = datetime.now()
-    
+    start()    
     with open('conf') as f:
         lines = f.read().splitlines()
     with open('send.list') as f:
         ip = f.read().splitlines()
-        
-              
+       
     for ip in ip:   
-      
         print("Envoi de la configuration sur l'adresse : "+ ip)
          
         equipment = {
@@ -72,16 +73,12 @@ def envoi():
         net_connect.save_config()
         time.sleep(0,5)
         net_connect.disconnect()
-        print(output)
-        
-    end = datetime.now()
-    duration = end - start
-    print("Execution Duration : "+ str(duration)+"\n")
+        print(output)     
+    end()
     main()
     
 def save():
-    
-    start = datetime.now()
+    start()
     with open('router.list') as f:
         ip_r = f.read().splitlines()
     with open('switch.list') as f:
@@ -119,20 +116,19 @@ def save():
         with open(file_save, "a") as file:
             file.write(run_cnf  + "\n")
         net_connect.disconnect()
-        print(file_save)    
-        end = datetime.now()
-        duration = end - start
-        print("Execution Duration : "+ str(duration)+"\n")
+        print("Configuration Sauvegardée dans le fichier:" + file_save)    
+        end()
           
 #Affichage du menu 
 def menu(): 
     choice ='0'
     print("\n Choix disponible 1 à 4. \n")
-    print("Choisir '1' pour l'envoi de configuration sur un routeur. ")
+    print("Choisir '1' pour l'envoi de configuration sur un équipement. ")
     print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
     print("Choisir '3' pour quitter le programme. \n")
 
 print (banner())
+start()
 menu()
 while choice =='0':
     choice = input ("Sélection: ")
@@ -145,4 +141,4 @@ elif choice == "1":
 elif choice == "2":
     save()
     menu()
-
+end()
