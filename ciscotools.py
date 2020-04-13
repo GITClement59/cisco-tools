@@ -69,7 +69,7 @@ def envoi():
         time.sleep(0,5)
         net_connect.disconnect()
         print(output)   
-     duration(start)
+   duration(start)
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
     start = time.time()
