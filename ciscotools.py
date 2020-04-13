@@ -78,46 +78,46 @@ def envoi():
     main()
     
    def save():
-    start()
-    with open('router.list') as f:
-        ip_r = f.read().splitlines()
-    with open('switch.list') as f:
-        ip_s = f.read().splitlines()
-    
-    ip_add = ip_r + ip_s
-    
-    for ip in ip_add:        
-        print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
-      
-        equipment = {
-        'device_type': 'cisco_ios',
-        'ip': ip,
-        'username': username,
-        'password': password,
-         }
+       start()
+       with open('router.list') as f:
+           ip_r = f.read().splitlines()
+       with open('switch.list') as f:
+           ip_s = f.read().splitlines()
 
-        net_connect = Netmiko(**equipment)
-        #récupération de la running-config
-        run_cnf = net_connect.send_command("show running-config")
-        print("Configuration Sauvegardée : "+ "\n" + run_cnf)
-        now = datetime.now()
-        date = now.strftime("%d_%m_%Y")
-        def hostname():
-            hst = net_connect.send_command("show running-config | in hostname")
-            hostname = hst.split()
-            return hostname[1]
-        path_save = "save/{0}/".format(hostname())
-        try:
-            os.makedirs(path_save)
-        except:
-            pass
-        file_save = "save/{0}/{1}.txt".format(hostname(),date)
-        #Ajoute la configuration au fichier texte créer ci dessus
-        with open(file_save, "a") as file:
-            file.write(run_cnf  + "\n")
-        print("Configuration Sauvegardée dans le fichier:" + file_save)
-        net_connect.disconnect()
-        end()
+       ip_add = ip_r + ip_s
+
+       for ip in ip_add:        
+           print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
+
+           equipment = {
+           'device_type': 'cisco_ios',
+           'ip': ip,
+           'username': username,
+           'password': password,
+            }
+
+           net_connect = Netmiko(**equipment)
+           #récupération de la running-config
+           run_cnf = net_connect.send_command("show running-config")
+           print("Configuration Sauvegardée : "+ "\n" + run_cnf)
+           now = datetime.now()
+           date = now.strftime("%d_%m_%Y")
+           def hostname():
+               hst = net_connect.send_command("show running-config | in hostname")
+               hostname = hst.split()
+               return hostname[1]
+           path_save = "save/{0}/".format(hostname())
+           try:
+               os.makedirs(path_save)
+           except:
+               pass
+           file_save = "save/{0}/{1}.txt".format(hostname(),date)
+           #Ajoute la configuration au fichier texte créer ci dessus
+           with open(file_save, "a") as file:
+               file.write(run_cnf  + "\n")
+           print("Configuration Sauvegardée dans le fichier:" + file_save)
+           net_connect.disconnect()
+           end()
 #Récupére la version des équipements listés      
 def firmware():
    start()
