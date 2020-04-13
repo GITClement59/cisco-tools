@@ -54,6 +54,7 @@ def envoi():
     for ip in ip:   
       
         print("Envoi de la configuration sur l'adresse : "+ ip)
+         
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
