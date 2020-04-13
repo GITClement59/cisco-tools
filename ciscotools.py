@@ -147,6 +147,7 @@ def menu():
     print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
     print("Choisir '3' pour vérifier les versions installées")
     print("Choisir '4' pour quitter le programme. \n")
+    return choice
 
 print (banner())
 start()
