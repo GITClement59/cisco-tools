@@ -80,7 +80,7 @@ def save():
 
     ip_add = ip_r + ip_s
 #On parcourt la liste d'IP
-      for ip in ip_add:        
+    for ip in ip_add:        
         print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
 
         equipment = {
