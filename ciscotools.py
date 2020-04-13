@@ -128,16 +128,15 @@ def save():
 def menu(): 
     print("\n Choix disponible 1 à 4. \n")
     print("Choisir '1' pour l'envoi de configuration sur un routeur. ")
-    print("Choisir '2' pour la sauvegarde intégrale. ")
-    print("Choisir '3' pour redémarrer l'ensemble des équipements réseaux. ")
-    print("Choisir '4' pour quitter le programme. \n")
+    print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
+    print("Choisir '3' pour quitter le programme. \n")
 
 print (banner())
 menu()
 choice ='0'
 while choice =='0':
     choice = input ("Sélection: ")
-if choice == "4":
+if choice == "3":
     print("\n Fin du programme, merci de votre utilisation.")
     sys.exit()
 elif choice == "1":
