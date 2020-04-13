@@ -126,6 +126,7 @@ def save():
           
 #Affichage du menu 
 def menu(): 
+    choice ='0'
     print("\n Choix disponible 1 à 4. \n")
     print("Choisir '1' pour l'envoi de configuration sur un routeur. ")
     print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
@@ -133,7 +134,6 @@ def menu():
 
 print (banner())
 menu()
-choice ='0'
 while choice =='0':
     choice = input ("Sélection: ")
 if choice == "3":
@@ -145,4 +145,4 @@ elif choice == "1":
 elif choice == "2":
     save()
     menu()
-menu()
+
