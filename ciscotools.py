@@ -68,7 +68,8 @@ def envoi():
         net_connect.save_config()
         time.sleep(0,5)
         net_connect.disconnect()
-        print(output)     
+        print(output)   
+        
     duration(start)
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
