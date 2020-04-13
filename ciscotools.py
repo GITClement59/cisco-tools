@@ -69,8 +69,7 @@ def envoi():
         time.sleep(0,5)
         net_connect.disconnect()
         print(output)   
-        
-    duration(start)
+     duration(start)
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
     start = time.time()
@@ -81,7 +80,7 @@ def save():
 
     ip_add = ip_r + ip_s
 #On parcourt la liste d'IP
-    for ip in ip_add:        
+      for ip in ip_add:        
         print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
 
         equipment = {
@@ -114,7 +113,7 @@ def save():
             file.write(run_cnf  + "\n")
         print("Configuration Sauvegardée dans le fichier:" + file_save)
         net_connect.disconnect()
-     duration(start)
+      duration(start)
 #Récupére la version des équipements listés      
 def firmware():
    start = time.time()
