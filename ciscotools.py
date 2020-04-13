@@ -41,13 +41,13 @@ def duration(start):
     print("[Execution time : {0} seconds]".format(round(time.time() - start)))
       
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
-def envoi(): 
+def envoi():
+   
     start = time.time()  
     with open('conf') as f:
         lines = f.read().splitlines()
     with open('send.list') as f:
-        ip = f.read().splitlines()
-       
+        ip = f.read().splitlines() 
     for ip in ip:   
         print("Envoi de la configuration sur l'adresse : "+ ip)
          
@@ -68,8 +68,8 @@ def envoi():
         net_connect.save_config()
         time.sleep(0,5)
         net_connect.disconnect()
-        print(output)   
-   duration(start)
+        print(output)
+      duration(start)
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
     start = time.time()
