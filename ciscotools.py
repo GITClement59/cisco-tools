@@ -38,7 +38,7 @@ def banner():
 #Fonction qui récupére l'heure de début
 def start():
     start = datetime.now()
-      
+    return start 
 #Fonction qui permet de calculer la durée de la tâche     
 def end():
     end = datetime.now()
