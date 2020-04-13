@@ -38,7 +38,7 @@ def banner():
 #Fonction qui récupére l'heure de début
 def start():
     start = time.time()
-    return start 
+    
 #Fonction qui permet de calculer la durée de la tâche     
 def duration():
     print("[Execution time : {0} seconds]".format(round(time.time() - start)))
@@ -138,8 +138,7 @@ def firmware():
       net_connect = Netmiko(**equipment)
       print(net_connect.send_command("show version | in IOS"))
       net_connect.disconnect()
-      print("[Execution time : {0} seconds]".format(round(time.time() - start)))
-      #duration(start)
+   duration()
       
 #Affichage du menu 
 def menu(): 
