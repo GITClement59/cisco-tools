@@ -73,7 +73,7 @@ def envoi():
         time.sleep(0,5)
         net_connect.disconnect()
         print(output)     
-    end()
+    duration()
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
     start()
@@ -117,7 +117,7 @@ def save():
             file.write(run_cnf  + "\n")
         print("Configuration Sauvegardée dans le fichier:" + file_save)
         net_connect.disconnect()
-        end()
+        duration()
 #Récupére la version des équipements listés      
 def firmware():
    start()
@@ -139,7 +139,7 @@ def firmware():
       net_connect = Netmiko(**equipment)
       print(net_connect.send_command("show version | in IOS"))
       net_connect.disconnect()
-      end()
+      duration()
       
 #Affichage du menu 
 def menu(): 
