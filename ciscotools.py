@@ -77,7 +77,7 @@ def envoi():
     end()
     main()
     
-def save():
+   def save():
     start()
     with open('router.list') as f:
         ip_r = f.read().splitlines()
@@ -122,22 +122,23 @@ def save():
 def firmware():
    start()
    with open('router.list') as f:
-        ip_r = f.read().splitlines()
-    with open('switch.list') as f:
-        ip_s = f.read().splitlines()
-    ip_add = ip_r + ip_s
+      ip_r = f.read().splitlines()
+   with open('switch.list') as f:
+      ip_s = f.read().splitlines()
+   ip_add = ip_r + ip_s
 
-    for ip in ip_add:        
-        equipment = {
-        'device_type': 'cisco_ios',
-        'ip': ip,
-        'username': username,
-        'password': password,
-         }
-   
-        net_connect = Netmiko(**equipment)
-        print(net_connect.send_command("show version | in IOS"))
-        net_connect.disconnect()
+   for ip in ip_add: 
+      
+      equipment = {
+      'device_type': 'cisco_ios',
+      'ip': ip,
+      'username': username,
+      'password': password,
+      }
+
+      net_connect = Netmiko(**equipment)
+      print(net_connect.send_command("show version | in IOS"))
+      net_connect.disconnect()
    
 #Affichage du menu 
 def menu(): 
