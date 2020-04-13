@@ -37,7 +37,7 @@ def banner():
    
     
 #Fonction qui permet de calculer la durée de la tâche     
-def duration():
+def duration(start):
     print("[Execution time : {0} seconds]".format(round(time.time() - start)))
       
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
@@ -135,7 +135,7 @@ def firmware():
       net_connect = Netmiko(**equipment)
       print(net_connect.send_command("show version | in IOS"))
       net_connect.disconnect()
-   duration()
+   duration(start)
       
 #Affichage du menu 
 def menu(): 
