@@ -37,12 +37,11 @@ def banner():
    
 #Fonction qui récupére l'heure de début
 def start():
-    start = datetime.now()
+    start = time.time()
     return start 
 #Fonction qui permet de calculer la durée de la tâche     
-def end():
-    end = datetime.now()
-    duration = end - start
+def duration():
+    duration = (time.time() - start)
     print("Execution Duration : "+ str(duration)+"\n")
       
 #Fonction destiné à sauvegarder les confiugrations des équipements listé dans les deux fichiers
