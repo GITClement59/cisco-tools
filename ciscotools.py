@@ -115,10 +115,32 @@ def save():
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(file_save, "a") as file:
             file.write(run_cnf  + "\n")
+        print("Configuration Sauvegardée dans le fichier:" + file_save)
         net_connect.disconnect()
-        print("Configuration Sauvegardée dans le fichier:" + file_save)    
         end()
-          
+#Récupére la version des équipements listés      
+def firmware():
+   start()
+   with open('router.list') as f:
+        ip_r = f.read().splitlines()
+    with open('switch.list') as f:
+        ip_s = f.read().splitlines()
+
+    ip_add = ip_r + ip_s
+
+    for ip in ip_add:        
+
+        equipment = {
+        'device_type': 'cisco_ios',
+        'ip': ip,
+        'username': username,
+        'password': password,
+         }
+   
+        net_connect = Netmiko(**equipment)
+        print(net_connect.send_command("show version | in IOS"))
+        net_connect.disconnect()
+   
 #Affichage du menu 
 def menu(): 
     choice ='0'
@@ -141,4 +163,4 @@ elif choice == "1":
 elif choice == "2":
     save()
     menu()
-end()
+    end()
