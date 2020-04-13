@@ -113,7 +113,7 @@ def save():
             file.write(run_cnf  + "\n")
         print("Configuration Sauvegardée dans le fichier:" + file_save)
         net_connect.disconnect()
-      duration(start)
+    duration(start)
 #Récupére la version des équipements listés      
 def firmware():
    start = time.time()
