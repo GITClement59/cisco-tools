@@ -59,7 +59,9 @@ def envoi():
         net_connect = Netmiko(**equipment) 
         with open('conf') as f:
             lines = f.read().splitlines()
+        print(net_connect.find_prompt())
         output = net_connect.send_config_set(lines)
+        print(net_connect.find_prompt())
         time.sleep(5)
         net_connect.disconnect()
         print(output)
@@ -67,7 +69,7 @@ def envoi():
     duration(start)
    
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
-def save():
+def save_loc():
     start = time.time()
     with open('router.list') as f:
         ip_r = f.read().splitlines()
@@ -114,6 +116,8 @@ def save():
         net_connect.disconnect()
     duration(start)
    
+def cpy():
+   
 #Récupére la version des équipements listés      
 def firmware():
    start = time.time()
@@ -142,21 +146,25 @@ def menu():
       choice ='0'
       print("\n Choix disponible 1 à 4. \n")
       print("Choisir '1' pour l'envoi de configuration sur un équipement. ")
-      print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux ")
-      print("Choisir '3' pour vérifier les versions installées")
-      print("Choisir '4' pour quitter le programme. \n")
+      print("Choisir '2' pour sauvegarder les configurations actuelles des équipements réseaux sur cette machine locale")
+      print("Choisir '3' pour effectuer un copy run-start sur l'équipement réseau")
+      print("Choisir '4' pour vérifier les versions installées")
+      print("Choisir '5' pour quitter le programme. \n")
       while choice =='0':
          choice = input ("Sélection: ")
-      if choice == "4":
+      if choice == "5":
          print("\n Fin du programme, merci de votre utilisation.")
          sys.exit()
       elif choice == "1":
          envoi()
          menu()
       elif choice == "2":
-         save()
+         save_loc()
          menu()
       elif choice == "3":
+         cpy()
+         menu()
+      elif choice == "4":
          firmware()
          menu()
 menu()
