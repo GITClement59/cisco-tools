@@ -32,18 +32,23 @@
              - SEND.LIST = IP pour envoyer la configuration
 ## Utilisation
 
-1 / Appel du programme 
+#### 1 / Appel du programme 
 
 Après avoir cloner le repository, voici comment appeler le programme :
 
 ![Appel](https://zupimages.net/up/20/16/39j1.png)
 
-2 / Menu 
+#### 2 / Menu 
 
 Voici l'ensemble des possibilitées :
 
 ![Menu](https://zupimages.net/up/20/16/lovi.png)
 
+#### 3 / Détail
+
+Choix 1 :<br>
+       - Envoi de la configuration listé dans le fichier "conf" sur le ou les équipements listés dans le fichier **SEND.LIST**
+       <br>Attention, la configuration ne sera pas sauvegardé avec cette option, pensé à bien sauvegarder après avoir fait la configuration via l'option 3
 ## Informations importantes
 
 Les configurations sont stockées dans le dossier save/HOSTNAME/, au format DD_MM_YY.txt.
