@@ -1,6 +1,6 @@
 ![Python 3.6](https://img.shields.io/badge/python-3.6%2B-green)
 ![Netmiko 3.0.0](https://img.shields.io/badge/netmiko-3.0.0-yellow)
-![License]((https://img.shields.io/badge/Licence-GPL--3.0-red)
+![License](https://img.shields.io/badge/Licence-GPL--3.0-red)
 ## cisco-tools
 
 ### Outil pour configurer, sauvegarder et visualiser des équipements réseaux CISCO automatiquement
