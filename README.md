@@ -51,7 +51,7 @@ Voici l'ensemble des possibilitées :
        <br>Attention, la configuration ne sera pas sauvegardé avec cette option, pensé à bien sauvegarder après avoir fait la configuration via l'option 3<br>
 
 **Choix 2** :<br>
-  - Sauvegarde de la configuration sur l'ordinateur local dans le fichier **save/** <br>
+  - Sauvegarde de la configuration sur l'ordinateur local dans le dossier **save/hostname/** sous format texte<br>
 
 **Choix 3** :<br>
  - Copy run-start de la configuration sur l'équipement cible <br>
