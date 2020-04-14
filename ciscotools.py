@@ -139,8 +139,8 @@ def cpy():
       
         #On initialise la connexion Netmiko sur l'équipement cible
         net_connect = Netmiko(**equipment)  
-        output = net_connect.send_command(copy run start)
-        output = net_connect.send_command(startup-config)
+        output = net_connect.send_command("copy run start")
+        output = net_connect.send_command("startup-config")
         if "confirm" in output:
             output += net_connect.send_command_timing("y", strip_prompt=False, strip_command=False)
         net_connect.disconnect()
