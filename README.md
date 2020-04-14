@@ -46,9 +46,16 @@ Voici l'ensemble des possibilitées :
 
 #### 3 / Détail
 
-Choix 1 :<br>
+**Choix 1** :<br>
        - Envoi de la configuration listé dans le fichier "conf" sur le ou les équipements listés dans le fichier **SEND.LIST**
-       <br>Attention, la configuration ne sera pas sauvegardé avec cette option, pensé à bien sauvegarder après avoir fait la configuration via l'option 3
+       <br>Attention, la configuration ne sera pas sauvegardé avec cette option, pensé à bien sauvegarder après avoir fait la configuration via l'option 3<br>
+**Choix 2** :<br>
+       - Sauvegarde de la configuration sur l'ordinateur local dans le fichier **save/** <br>
+**Choix 3** :<br>
+       - Copy run-start de la configuration sur l'équipement cible <br>
+**Choix 4** :<br>
+       - Vérifie la version cible
+       
 ## Informations importantes
 
 Les configurations sont stockées dans le dossier save/HOSTNAME/, au format DD_MM_YY.txt.
