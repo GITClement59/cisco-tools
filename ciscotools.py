@@ -193,4 +193,5 @@ def menu():
       elif choice == "4":
          firmware()
          menu()
+banner()
 menu()
