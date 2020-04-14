@@ -62,7 +62,6 @@ def envoi():
             lines = f.read().splitlines()
         #envoi de la configuration
         output = net_connect.send_config_set(lines)
-        time.sleep(5)
         net_connect.disconnect()
         print(output)
         print("Pensez à sauvegarder la configuration envoyée à l'équipement via la fonction 3" +"\n" )
