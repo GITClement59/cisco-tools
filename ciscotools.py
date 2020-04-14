@@ -5,7 +5,7 @@
 
 #Version 1.0
 
-#LastUpdate:  09/04/2020
+#LastUpdate:  14/04/2020
 
 #importation des modules
 import getpass
@@ -17,11 +17,8 @@ import time
    
 #Récupération de l'user / mdp pour se connecter
 print("Entrez vos informations de connexion: ")
-#username = input("Username: \n")
-#password = getpass.getpass("Password: \n")
-
-username = "admin"
-password = "azerty"
+username = input("Username: \n")
+password = getpass.getpass("Password: \n")
 
 def banner():
     cisco_banner = """\n
@@ -66,7 +63,9 @@ def envoi():
         time.sleep(5)
         net_connect.disconnect()
         print(output)
+        print("Pensez à sauvegarder la configuration envoyée à l'équipement")
     duration(start)
+   
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
 def save():
     start = time.time()
@@ -86,6 +85,7 @@ def save():
         'username': username,
         'password': password,
          }
+      
         #On initialise la connexion Netmiko sur l'équipement cible
         net_connect = Netmiko(**equipment)
         #récupération de la running-config
@@ -93,12 +93,14 @@ def save():
         print("Configuration Sauvegardée : "+ "\n" + run_cnf)
         now = datetime.now()
         date = now.strftime("%d_%m_%Y")
-         #Récupération du hostname
+        
+        #Récupération du hostname
         def hostname():
             hst = net_connect.send_command("show running-config | in hostname")
             hostname = hst.split()
             return hostname[1]
         path_save = "save/{0}/".format(hostname())
+      
         #Création du dossier de backup si nécessaire
         try:
             os.makedirs(path_save)
@@ -111,6 +113,7 @@ def save():
         print("Configuration Sauvegardée dans le fichier:" + file_save)
         net_connect.disconnect()
     duration(start)
+   
 #Récupére la version des équipements listés      
 def firmware():
    start = time.time()
