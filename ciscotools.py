@@ -117,7 +117,33 @@ def save_loc():
         print("Configuration Sauvegardée dans le fichier:" + file_save +"\n")
         net_connect.disconnect()
     duration(start)
-   
+def cpy():
+    start = time.time()
+      
+    with open('router.list') as f:
+        ip_r = f.read().splitlines()
+    with open('switch.list') as f:
+        ip_s = f.read().splitlines()
+
+    ip_add = ip_r + ip_s
+    #On parcourt la liste d'IP
+    for ip in ip_add:        
+        print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
+
+        equipment = {
+        'device_type': 'cisco_ios',
+        'ip': ip,
+        'username': username,
+        'password': password,
+         }
+      
+        #On initialise la connexion Netmiko sur l'équipement cible
+        net_connect = Netmiko(**equipment)  
+        output = net_connect.send_command(copy run start)
+        output = net_connect.send_command(startup-config)
+        if "confirm" in output:
+            output += net_connect.send_command_timing("y", strip_prompt=False, strip_command=False)
+        net_connect.disconnect()
 #Récupére la version des équipements listés      
 def firmware():
     start = time.time()
