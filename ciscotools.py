@@ -65,7 +65,7 @@ def envoi():
         time.sleep(5)
         net_connect.disconnect()
         print(output)
-        print("Pensez à sauvegarder la configuration envoyée à l'équipement via la fonction "3"" +"\n" )
+        print("Pensez à sauvegarder la configuration envoyée à l'équipement via la fonction 3" +"\n" )
     duration(start)
    
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
