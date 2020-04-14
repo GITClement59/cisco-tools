@@ -15,7 +15,7 @@ import sys
 from netmiko import Netmiko
 import time
    
-#Récupération de l'user / mdp pour se connecter
+#Récupération de l'user / mdp pour se connecter sur les équipements
 print("Entrez vos informations de connexion: ")
 username = input("Username: \n")
 password = getpass.getpass("Password: \n")
@@ -41,13 +41,14 @@ def duration(start):
 def envoi():
    
     start = time.time()  
+    #On parcourt le fichier de conf pour lire les commandes à envoyer et le fichier send.list pour l'IP ou les IPs où diffuser la conf
     with open('conf') as f:
         lines = f.read().splitlines()
     with open('send.list') as f:
         ip = f.read().splitlines() 
     for ip in ip:   
         print("Envoi de la configuration sur l'adresse : "+ ip)
-         
+        #Définition de l'equipment utilisé pour la connexion netmiko 
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
@@ -60,6 +61,7 @@ def envoi():
         with open('conf') as f:
             lines = f.read().splitlines()
         print(net_connect.find_prompt())
+        #envoi de la configuration
         output = net_connect.send_config_set(lines)
         print(net_connect.find_prompt())
         time.sleep(5)
