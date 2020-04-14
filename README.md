@@ -13,8 +13,8 @@
 </pre>
 
 ## Compatibilité
- - Cisco IOSv 15.62(T)
- - 
+ - CISCO IOS C7200
+ - CISCO IOS C3725
 
 ## Pré-requis
  - Accès SSH aux équipements réseaux
@@ -24,6 +24,16 @@
 
 1 /  Renseigner l'username dans la variable user du fichier **config.py**
 
-2 / Modifier le fichier liste en y ajoutant les **IPs** des équipements cibles. 
+2 / Modifier les fichiers listes en y ajoutant les **IPs** des équipements cibles : 
+             - ROUTER.LIST = IP des routeurs
+             - SWITCH.LIST = IP des switchs
+             - SEND.LIST = IP pour envoyer la configuration
+## Utilisation
+
+1 / Appel du programme 
+
+Après avoir cloner le repository, voici comment appeler le programme :
+
+![Appel](https://zupimages.net/up/20/16/39j1.png)
 
 
