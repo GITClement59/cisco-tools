@@ -26,9 +26,9 @@
 
 1 /  Renseigner l'username dans la variable user du fichier **config.py**
 
-2 / Modifier les fichiers listes en y ajoutant les **IPs** des équipements cibles : 
-             - ROUTER.LIST = IP des routeurs
-             - SWITCH.LIST = IP des switchs
+2 / Modifier les fichiers listes en y ajoutant les **IPs** des équipements cibles :<br> 
+             - ROUTER.LIST = IP des routeurs<br>
+             - SWITCH.LIST = IP des switchs<br>
              - SEND.LIST = IP pour envoyer la configuration
 ## Utilisation
 
