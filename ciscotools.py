@@ -139,11 +139,12 @@ def cpy():
       
         #On initialise la connexion Netmiko sur l'équipement cible
         net_connect = Netmiko(**equipment)  
-        output = net_connect.send_command("copy run start")
-        output = net_connect.send_command("startup-config")
+        output = net_connect.send_command_timing("copy run start", strip_command=False, strip_prompt=False)
+        output = net_connect.send_command_timing("startup-config", strip_command=False, strip_prompt=False)
         if "confirm" in output:
             output += net_connect.send_command_timing("y", strip_prompt=False, strip_command=False)
         net_connect.disconnect()
+        print(output)
 #Récupére la version des équipements listés      
 def firmware():
     start = time.time()
