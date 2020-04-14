@@ -144,7 +144,7 @@ def cpy():
         if "confirm" in output:
             output += net_connect.send_command_timing("y", strip_prompt=False, strip_command=False)
         net_connect.disconnect()
-        print(output)
+        print("Configuration sauvegardée avec succés")
 #Récupére la version des équipements listés      
 def firmware():
     start = time.time()
