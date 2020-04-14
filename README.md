@@ -13,8 +13,8 @@
 </pre>
 
 ## Compatibilité
- - CISCO IOS C7200
- - CISCO IOS C3725
+ - :green_check_mark:CISCO IOS C7200
+ - :green_check_mark:CISCO IOS C3725
 
 ## Pré-requis
  - Accès SSH aux équipements réseaux
@@ -36,4 +36,13 @@ Après avoir cloner le repository, voici comment appeler le programme :
 
 ![Appel](https://zupimages.net/up/20/16/39j1.png)
 
+2 / Menu 
+
+Voici l'ensemble des possibilitées :
+
+![Menu](https://zupimages.net/up/20/16/lovi.png)
+
+## Informations importantes
+
+Les configurations sont stockées dans le dossier save/HOSTNAME/, au format DD_MM_YY.txt.
 
