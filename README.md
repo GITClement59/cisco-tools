@@ -13,8 +13,8 @@
 </pre>
 
 ## Compatibilité
- - :green_check_mark:CISCO IOS C7200
- - :green_check_mark:CISCO IOS C3725
+ - :white_check_mark:CISCO IOS C7200
+ - :white_check_mark:CISCO IOS C3725
 
 ## Pré-requis
  - Accès SSH aux équipements réseaux
