@@ -30,9 +30,6 @@ def banner():
 \n  \___|_|___/\___\___/       \__\___/ \___/|_|___/
   """)
     
-    #return cisco_banner
-   
-    
 #Fonction qui permet de calculer la durée de la tâche     
 def duration(start):
     print("[Execution time : {0} seconds]".format(round(time.time() - start)))
@@ -169,6 +166,7 @@ def firmware():
       
 #Affichage du menu 
 def menu(): 
+      banner()
       choice ='0'
       print("\n Choix disponible 1 à 4. \n")
       print("Choisir '1' pour l'envoi de configuration sur un équipement. ")
@@ -193,5 +191,4 @@ def menu():
       elif choice == "4":
          firmware()
          menu()
-banner()
 menu()
