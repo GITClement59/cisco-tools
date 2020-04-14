@@ -120,26 +120,26 @@ def cpy():
    
 #Récupére la version des équipements listés      
 def firmware():
-      start = time.time()
-      with open('router.list') as f:
-         ip_r = f.read().splitlines()
-      with open('switch.list') as f:
-         ip_s = f.read().splitlines()
-      ip_add = ip_r + ip_s
+   start = time.time()
+   with open('router.list') as f:
+      ip_r = f.read().splitlines()
+   with open('switch.list') as f:
+      ip_s = f.read().splitlines()
+   ip_add = ip_r + ip_s
 
-      for ip in ip_add: 
+   for ip in ip_add: 
 
-         equipment = {
-         'device_type': 'cisco_ios',
-         'ip': ip,
-         'username': username,
-         'password': password,
-         }
+      equipment = {
+      'device_type': 'cisco_ios',
+      'ip': ip,
+      'username': username,
+      'password': password,
+      }
 
-         net_connect = Netmiko(**equipment)
-         print(net_connect.send_command("show version | in IOS"))
-         net_connect.disconnect()
-      duration(start)
+      net_connect = Netmiko(**equipment)
+      print(net_connect.send_command("show version | in IOS"))
+      net_connect.disconnect()
+   duration(start)
       
 #Affichage du menu 
 def menu(): 
