@@ -65,7 +65,7 @@ def envoi():
         time.sleep(5)
         net_connect.disconnect()
         print(output)
-        print("Pensez à sauvegarder la configuration envoyée à l'équipement")
+        print("Pensez à sauvegarder la configuration envoyée à l'équipement" +"\n" )
     duration(start)
    
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
@@ -112,7 +112,7 @@ def save_loc():
         #Ajoute la configuration au fichier texte créer ci dessus
         with open(file_save, "a") as file:
             file.write(run_cnf  + "\n")
-        print("Configuration Sauvegardée dans le fichier:" + file_save)
+        print("Configuration Sauvegardée dans le fichier:" + file_save +"\n")
         net_connect.disconnect()
     duration(start)
    
@@ -135,7 +135,7 @@ def firmware():
        }
 
        net_connect = Netmiko(**equipment)
-       print(net_connect.send_command("show version | in IOS"))
+       print(net_connect.send_command("show version | in IOS") +"\n")
        net_connect.disconnect()
     duration(start)
       
