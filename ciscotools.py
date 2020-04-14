@@ -56,18 +56,16 @@ def envoi():
         'password': password,
         'blocking_timeout': 16
          }
-
+        #connexion à l'equipement
         net_connect = Netmiko(**equipment) 
         with open('conf') as f:
             lines = f.read().splitlines()
-        print(net_connect.find_prompt())
         #envoi de la configuration
         output = net_connect.send_config_set(lines)
-        print(net_connect.find_prompt())
         time.sleep(5)
         net_connect.disconnect()
         print(output)
-        print("Pensez à sauvegarder la configuration envoyée à l'équipement" +"\n" )
+        print("Pensez à sauvegarder la configuration envoyée à l'équipement via la fonction "3"" +"\n" )
     duration(start)
    
 #Fonction destinée à sauvegarder la configuration de l'ensemble des équipements dans un fichier txt
@@ -129,7 +127,7 @@ def cpy():
     #On parcourt la liste d'IP
     for ip in ip_add:        
         print("Sauvegarde de la configuration de l'équipement ayant l'adresse : "+ ip)
-
+        
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
@@ -139,12 +137,14 @@ def cpy():
       
         #On initialise la connexion Netmiko sur l'équipement cible
         net_connect = Netmiko(**equipment)  
+        #Envoi d'un cpy run start sur l'équipement,utilisation de deux arguments permettant la confirmation de sauvegarde
         output = net_connect.send_command_timing("copy run start", strip_command=False, strip_prompt=False)
         output = net_connect.send_command_timing("startup-config", strip_command=False, strip_prompt=False)
         if "confirm" in output:
             output += net_connect.send_command_timing("y", strip_prompt=False, strip_command=False)
         net_connect.disconnect()
         print("Configuration sauvegardée avec succés")
+    duration(start)
 #Récupére la version des équipements listés      
 def firmware():
     start = time.time()
@@ -153,7 +153,7 @@ def firmware():
     with open('switch.list') as f:
       ip_s = f.read().splitlines()
     ip_add = ip_r + ip_s
-
+   
     for ip in ip_add: 
 
        equipment = {
