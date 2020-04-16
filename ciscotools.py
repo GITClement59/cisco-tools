@@ -151,7 +151,7 @@ def firmware():
     ip_add = ip_r + ip_s
    
     for ip in ip_add: 
-
+       print("VERSION DE L'EQUIPEMENT : "+ ip)
        equipment = {
        'device_type': 'cisco_ios',
        'ip': ip,
