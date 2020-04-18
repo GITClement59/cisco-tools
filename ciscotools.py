@@ -45,7 +45,7 @@ def envoi():
         ip = f.read().splitlines() 
     for ip in ip:   
         print("Envoi de la configuration sur l'adresse : "+ ip)
-        #Définition de l'equipment utilisé pour la connexion netmiko 
+        #Définition de l'equipment utilisé pour la connexion netmiko via un dictionnaire qui stocke les variables nécessaires pour netmiko
         equipment = {
         'device_type': 'cisco_ios',
         'ip': ip,
